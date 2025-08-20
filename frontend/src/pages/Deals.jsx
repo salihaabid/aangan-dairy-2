@@ -16,7 +16,7 @@ export default function BestSeller() {
     setBestSellers(filtered);
   }, [products]);
 
-  // Apply filtering + sorting on bestSellers
+  // Apply filtering + sorting
   const { filteredProducts, setFilters } = useProductFilter(bestSellers);
 
   return (

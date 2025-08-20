@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { LuSearch, LuUser, LuShoppingBag } from 'react-icons/lu';
 import { Link, NavLink } from 'react-router-dom';
 import { assets } from '../assets/assets';
+import { ShopContext } from '../context/ShopContext';
 
 export default function Navbar() {
   const [active, setActive] = useState('Home');
   const [openSubmenu, setOpenSubmenu] = useState(false);
-
+  const { setShowSearch } = useContext(ShopContext);
   const navLinkClass = (name) =>
-    `!text-[20px] !bg-transparent hover:!bg-transparent hover:text-[#2a4125] hover:underline hover:decoration-[#2a4125]
-    ${
-      active === name
-        ? 'text-[#2a4125] underline decoration-[#2a4125]'
-        : 'text-[#77846a]'
-    }`;
+    `!text-[20px] !bg-transparent focus:!bg-transparent active:outline-none 
+   hover:text-[#2a4125] hover:underline hover:decoration-[#2a4125]
+   ${
+     active === name
+       ? 'text-[#2a4125] underline decoration-[#2a4125]'
+       : 'text-[#77846a]'
+   }`;
 
   const handleClick = (name) => {
     setActive(name);
@@ -305,6 +307,7 @@ export default function Navbar() {
               size={29}
               strokeWidth={1.5}
               className='text-[#2a4125] transition-transform duration-200 hover:scale-110 cursor-pointer'
+              onClick={() => setShowSearch(true)}
             />
             <div className='relative group'>
               <LuUser

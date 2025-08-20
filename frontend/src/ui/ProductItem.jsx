@@ -11,7 +11,7 @@ export default function ProductItem({
 }) {
   console.log(id, name, image, price, brand, rating);
   return (
-    <div className='p-4 flex flex-col items-center group'>
+    <div className='p-4 flex flex-col items-center group cursor-pointer'>
       {/* Product Image */}
       <div className='w-full rounded-xl relative h-48 sm:h-56 lg:h-64'>
         {product.image.length === 1 ? (

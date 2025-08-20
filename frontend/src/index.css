@@ -10,3 +10,10 @@ body {
   background-color: #fef7e5;
   height: 100%;
 }
+/* Kill DaisyUI / browser active flash */
+.menu li > *:focus,
+.menu li > *:active {
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
